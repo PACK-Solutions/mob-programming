@@ -1,0 +1,20 @@
+mat-card{
+  width: 50%;
+  font-size: 500%;
+  background: #3F51B5;
+  color: white;
+  margin-top: 1%;
+  text-align: center;
+}
+
+.collaboratorsList {
+  text-align: center;
+  font-size: 300%;
+}
+
+#next-card {
+  width: 20%;
+  margin: 3vh 0;
+  font-size: 100%;
+  opacity: 0.75;
+}

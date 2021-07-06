@@ -1,0 +1,18 @@
+<div>
+  <div *ngFor="let collaborator of collaboratorService.collaborators"
+       [class.selected]="collaborator === selectedCollaborator"
+       (click)="onSelect(collaborator)" fxLayoutAlign="space-around">
+
+    <app-edit-collaborator [collaborator]="collaborator"></app-edit-collaborator>
+
+  </div>
+
+</div>
+<br>
+<div>
+  <app-shuffle-collaborator></app-shuffle-collaborator>
+  <br><br>
+  <app-rotation-collaborator></app-rotation-collaborator>
+  <br><br><br>
+  <button class="testbuttonstartTimer" id="start-button" mat-raised-button color="primary" (click)="startTimer()" [innerHTML]="'start' | translate"></button>
+</div>

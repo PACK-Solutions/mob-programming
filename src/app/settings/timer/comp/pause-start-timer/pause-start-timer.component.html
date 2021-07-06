@@ -1,0 +1,10 @@
+<div fxLayout="row" fxLayoutAlign="center">
+  <button mat-icon-button color="primary" (click)="timerService.pauseTimer()" *ngIf="timerService.timerState === 'start'">
+    <mat-icon>pause_circle_outline</mat-icon>
+  </button>
+
+  <button mat-icon-button color="primary" (click)="timerService.startTimer()" *ngIf="timerService.timerState === 'pause'">
+    <mat-icon>play_circle_outline</mat-icon>
+  </button>
+
+</div>

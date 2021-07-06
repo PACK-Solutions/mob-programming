@@ -1,0 +1,21 @@
+.content {
+  display: flex;
+  margin: 82px auto 32px;
+  padding: 0 16px;
+  max-width: 960px;
+  flex-direction: column;
+  align-items: center;
+}
+
+mat-card{
+  width: 50%;
+  font-size: xxx-large;
+  background: #3F51B5;
+  color: white;
+  margin-bottom: 5%;
+  text-align: center;
+}
+
+button{
+  transform: scale(1.5);
+}

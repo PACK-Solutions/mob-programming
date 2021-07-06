@@ -1,0 +1,17 @@
+
+<div fxFlex fxLayout="column" fxLayoutAlign="space-between center">
+
+  <mat-card>{{timerService.maxCounter | timerFormat}}</mat-card>
+
+  <form id="myForm">
+
+    <mat-form-field>
+      <mat-label [innerHTML]="'timeInMin' | translate"></mat-label>
+      <input matInput type="text" placeholder="Ex. 30" [formControl]="inputTime" (keypress)="OnlyNumbersAllowed($event)">
+    </mat-form-field>
+
+    <button mat-raised-button (click)="changeTimer()" [disabled]="inputTime.value <= 0" [innerHTML]="'change' | translate"></button>
+
+  </form>
+
+</div>

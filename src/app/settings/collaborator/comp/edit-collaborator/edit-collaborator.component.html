@@ -1,0 +1,10 @@
+<div *ngIf="collaborator">
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)]="collaborator.name">
+<!--    <button mat-button *ngIf="collaborator.name" matSuffix mat-icon-button aria-label="Clear" (click)="collaborator.name=''">-->
+<!--      <mat-icon>close</mat-icon>-->
+<!--    </button>-->
+  </mat-form-field>
+  <app-remove-collaborator [collaborator]="collaborator"></app-remove-collaborator>
+
+</div>
