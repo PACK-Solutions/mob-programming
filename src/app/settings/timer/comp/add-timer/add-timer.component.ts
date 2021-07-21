@@ -1,6 +1,5 @@
-import {Component} from '@angular/core';
-import { Pipe, PipeTransform } from '@angular/core';
-import {TimerService} from '../../service/timer.service';
+import { Component } from '@angular/core';
+import { TimerService } from '../../service/timer.service';
 
 @Component({
   selector: 'app-add-timer',

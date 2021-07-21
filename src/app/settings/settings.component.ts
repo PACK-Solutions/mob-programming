@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CollaboratorsService} from './collaborator/service/collaborators.service';
+import { CollaboratorsService } from './collaborator/service/collaborators.service';
 
 @Component({
   selector: 'app-main-page',

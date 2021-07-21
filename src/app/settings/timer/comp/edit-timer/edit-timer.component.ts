@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {TimerService} from '../../service/timer.service';
-import {FormControl} from '@angular/forms';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {TranslateService} from '@ngx-translate/core';
+import { Component, OnInit } from '@angular/core';
+import { TimerService } from '../../service/timer.service';
+import { FormControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-edit-timer',
@@ -18,7 +18,7 @@ export class EditTimerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  OnlyNumbersAllowed(event: { which: number; keyCode: any; }): boolean {
+  onlyNumbersAllowed(event: { which: number; keyCode: any; }): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
 
     return !(charCode > 31 && (charCode < 48 || charCode > 57));

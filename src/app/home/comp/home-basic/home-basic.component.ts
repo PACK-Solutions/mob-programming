@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NavAuthGuard} from '../../../header/service/nav-auth.guard';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-basic',
@@ -8,13 +8,12 @@ import {NavAuthGuard} from '../../../header/service/nav-auth.guard';
 })
 export class HomeBasicComponent implements OnInit {
 
-  constructor(public navAuthGuard: NavAuthGuard) {
-  }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
   createRoom(): void {
-    this.navAuthGuard.signIn();
+    this.router.navigate(['/settings']).then();
   }
 
 }

@@ -1,10 +1,10 @@
 <div fxFlex fxLayout="column" fxLayoutAlign="space-between center">
-  <app-add-timer></app-add-timer>
-  <mat-card>
+  <app-add-timer class="testingappaddtimer"></app-add-timer>
+  <mat-card class="testingmatcard-collaboratorname">
     <span *ngIf="collaboratorService.collaborators.length != 0">{{this.collaboratorService.currentCollaborator.name}}</span>
     <span *ngIf="collaboratorService.collaborators.length === 0">-</span>
   </mat-card>
-  <mat-card id="next-card" *ngIf="collaboratorService.rotationMode == 'List'">
+  <mat-card class="testingmatcardnextcard" id="next-card" *ngIf="collaboratorService.rotationMode == 'List'">
     <div class="collaboratorsList" *ngIf="collaboratorService.collaborators.length != 0">
     {{collaboratorService.collaborators[
     collaboratorService.collaborators.indexOf(collaboratorService.currentCollaborator) != collaboratorService.collaborators.length - 1 ?

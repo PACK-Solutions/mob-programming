@@ -4,12 +4,12 @@
   "change": "Change",
   "changeTime": "Set timer",
   "addCollaborator": "Add User",
-  "shuffle": "Shuffle !",
+  "shuffle": "Shuffle!",
   "listMode": "List",
   "randomMode": "Random",
   "next": "Next",
   "start": "Start",
   "current": "Current :",
   "snackTime": ["Timer set to ", " minutes"],
-  "snackNext": ["It's the turn of ", " !"]
+  "snackNext": ["It's the turn of ", "!"]
 }

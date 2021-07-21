@@ -1,11 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HomeBasicComponent } from './home-basic.component';
-import {AppComponent} from '../../../app.component';
-import {DebugElement, NO_ERRORS_SCHEMA} from '@angular/core';
-import {TranslateModule} from '@ngx-translate/core';
-import {MatMenuModule} from '@angular/material/menu';
-import {By} from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatMenuModule } from '@angular/material/menu';
+import { By } from '@angular/platform-browser';
 
 describe('HomeBasicComponent', () => {
   let component: HomeBasicComponent;
@@ -38,6 +37,7 @@ describe('HomeBasicComponent', () => {
   it('should have mat-card tag create', () => {
     expect(de.query(By.css('mat-card')).nativeElement.innerText).toBe('Mob Programming');
   });
+
 
 
 });

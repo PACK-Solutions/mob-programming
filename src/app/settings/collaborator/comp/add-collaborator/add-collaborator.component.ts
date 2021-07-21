@@ -34,7 +34,6 @@ export class AddCollaboratorComponent implements OnInit {
       this.collaboratorsService.collaborators.length + 1,
       this.collaboratorForm.controls.idRoom.value,
       this.collaboratorForm.controls.name.value);
-    console.log(newCollaborator);
     // Calling the method addCollaborator from collaborator Service for adding a new entry
     this.collaboratorsService.addCollaborator(newCollaborator);
 

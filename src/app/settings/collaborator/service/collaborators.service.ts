@@ -12,12 +12,7 @@ export class CollaboratorsService {
   public rotationMode: string;
   public collaboratorRandom!: Collaborator[];
 
-  public collaborators: Collaborator[] = [
-    new Collaborator(1, 1, 'Dylan'),
-    new Collaborator(2, 1, 'Marco'),
-    new Collaborator(3, 1, 'Clément'),
-    new Collaborator(4, 1, 'Théo')
-  ];
+  public collaborators: Collaborator[] = [];
 
   constructor(private snackBar: MatSnackBar, public translate: TranslateService) {
     this.currentCollaborator = this.collaborators[0];
@@ -27,12 +22,6 @@ export class CollaboratorsService {
 
   getAllCollaborators(): Collaborator[]{
     return this.collaborators;
-  }
-
-  getById(id: number): Collaborator{
-    return this.collaborators.find((collaborator) => {
-      return collaborator.id === id;
-    }) ?? this.collaborators[0];
   }
 
   public addCollaborator(collaboratorToAdd: Collaborator): void{

@@ -14,16 +14,15 @@ export class ArrayCollaboratorComponent {
   selectedCollaborator?: Collaborator;
 
   constructor(public collaboratorService: CollaboratorsService,
-              private timerService: TimerService,
+              public timerService: TimerService,
               private router: Router) {}
 
   onSelect(collaborator: Collaborator): void{
     this.selectedCollaborator = collaborator;
-    console.log(collaborator.id);
   }
 
   public startTimer(): void {
-    this.router.navigate(['/main']).then();
+    this.router.navigate(['/run']).then();
     this.timerService.startTimer();
   }
 

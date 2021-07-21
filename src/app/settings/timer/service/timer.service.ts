@@ -1,15 +1,15 @@
-import {Injectable} from '@angular/core';
-import {Observable, Subscription, timer} from 'rxjs';
-import {take} from 'rxjs/operators';
-import {CollaboratorsService} from '../../collaborator/service/collaborators.service';
+import { Injectable } from '@angular/core';
+import { Observable, Subscription, timer } from 'rxjs';
+import { take } from 'rxjs/operators';
+import { CollaboratorsService } from '../../collaborator/service/collaborators.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TimerService {
 
-  public counter = 5;
-  public maxCounter = 5;
+  public counter = 0;
+  public maxCounter = 0;
   public countDown!: Subscription;
   public tick = 1000;
   public timerState = 'pause';
@@ -25,7 +25,6 @@ export class TimerService {
   }
 
   public createTimerFromValue(actualValue: number): Observable<number>{
-    console.log(actualValue);
     return timer(0, this.tick).pipe(
       take(actualValue)
     );
@@ -40,9 +39,7 @@ export class TimerService {
     this.countDown = actualTimer.subscribe(() => {
       this.counter -= 1;
       } , () => {
-        console.log('error');
       }, () => {
-        console.log('complete');
         this.endTimer();
         this.startTimer();
       });

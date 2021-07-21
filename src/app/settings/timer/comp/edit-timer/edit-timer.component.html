@@ -7,7 +7,7 @@
 
     <mat-form-field>
       <mat-label [innerHTML]="'timeInMin' | translate"></mat-label>
-      <input matInput type="text" placeholder="Ex. 30" [formControl]="inputTime" (keypress)="OnlyNumbersAllowed($event)">
+      <input matInput type="text" placeholder="Ex. 30" [formControl]="inputTime" (keypress)="onlyNumbersAllowed($event)">
     </mat-form-field>
 
     <button mat-raised-button (click)="changeTimer()" [disabled]="inputTime.value <= 0" [innerHTML]="'change' | translate"></button>

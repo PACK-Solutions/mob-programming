@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {TimerService} from '../../service/timer.service';
+import { Component } from '@angular/core';
+import { TimerService } from '../../service/timer.service';
 
 @Component({
   selector: 'app-pause-start-timer',

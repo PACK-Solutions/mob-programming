@@ -1,10 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { AppComponent } from '../../app.component';
 import { HeaderComponent } from './header.component';
-import {TranslateModule} from '@ngx-translate/core';
-import {MatMenuModule} from '@angular/material/menu';
-import {DebugElement} from '@angular/core';
-import {By} from '@angular/platform-browser';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatMenuModule } from '@angular/material/menu';
+import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;

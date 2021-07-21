@@ -34,7 +34,7 @@ describe('ArrayCollaboratorComponent', () => {
    });
 
   it('should have app-edit-collaborator created', () => {
-    expect(de.query(By.css('app-edit-collaborator')).nativeElement.innerText);
+    expect(de.query(By.css('app-edit-collaborator')));
   });
   it('should have app-shuffle-collaborator created', () => {
     expect(de.query(By.css('app-shuffle-collaborator')).nativeElement.innerText);
@@ -45,8 +45,7 @@ describe('ArrayCollaboratorComponent', () => {
   });
 
   it('should have button startTimer created', () => {
-    expect(de.query(By.css('.testbuttonstartTimer')).nativeElement.innerText).toBe('start');
+    expect(de.query(By.css('.testarraycollaborator')));
   });
-
 
 });

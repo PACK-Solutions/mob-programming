@@ -1,9 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
-import {MediaChange, MediaObserver} from '@angular/flex-layout';
-import {SwPush} from '@angular/service-worker';
-import {TranslateService} from '@ngx-translate/core';
-import {Router} from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
+import { SwPush } from '@angular/service-worker';
+import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',

@@ -18,7 +18,6 @@ export class RemoveCollaboratorComponent implements OnInit {
 
 
   public removeCollaborators(): void{
-    console.log(this.collaborator.name);
     if (this.collaborator === this.collaboratorService.currentCollaborator) {
       this.collaboratorService.nextCollaborator();
     }
