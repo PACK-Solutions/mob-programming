@@ -9,7 +9,7 @@
   "randomMode": "Random",
   "next": "Next",
   "start": "Start",
-  "current": "Current :",
+  "current": "Current:",
   "snackTime": ["Timer set to ", " minutes"],
   "snackNext": ["It's the turn of ", "!"]
 }

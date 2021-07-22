@@ -1,103 +1,82 @@
-#Mob programming
+# Mob Programming
+![Mob Programming logo](src/assets/icons/icon-128x128.png)
 
-## Purpose
+## Overview
+Mob Programming is a software development approach where the whole team works on the same thing, at the same time, in the same space, and at the same computer. For more details, see the Agile Alliance definition : https://www.agilealliance.org/glossary/mob-programming.
 
-This mob-programming application was created by 4 students in the 2nd year of software engineering within the AEN group, more precisely on the Nîmes campus.
+With global pandemic context and remote workers, it has become really hard to bring the team at the same place. This is where this app comes in, by dematerializing this approach.
+> For a better experience with remote collaborators, you should use your favorite communication tool together with this app.
 
-PACK Solutions uses the agile methodology within its company. This is why PACK Solutions asks these 4 students to create a mob programming application in order to be able to hold meetings with this tool remotely.
+For the record, this application was initially created by a group of 2nd year undergraduate students in software engineering from the AEN Group (Nîmes campus), sponsored by PACK Solutions.
 
-[<p align="center" float="left"><img align="center"  width="250" src=".github/aen.png"> ](https://www.groupe-aen.info/)
-[<img align="center"  width="250" src=".github/packsolutions.png">](http://www.pack-solutions.com/)
+[![Groupe AEN](.github/images/groupe-aen-logo.png)](https://www.groupe-aen.info)
+[![PACK Solutions](.github/images/pack-solutions-logo.png)](http://www.pack-solutions.com)
+
 ## Installation
 
 ### Platform & tools
-
-You need to install Node.js and then the development tools. Node.js comes with a package manager called [npm](http://npmjs.org) for installing NodeJS applications and libraries.
-* [Install node.js](http://nodejs.org/download/) (requires node.js version >= 12.14.0)
+You need to install Node.js and then the development tools. Node.js comes with a package manager called [npm](https://www.npmjs.com) for installing Node.js applications and libraries.
+* [Install node.js](https://nodejs.org/download/) (requires Node.js version ≥ `12`)
 
 ### Clone the repo
-
 ```shell
 git clone https://github.com/PACK-Solutions/mob-programming
 cd mob-programming
 ```
 
 ### Install npm packages
-
 Install the `npm` packages described in the `package.json` and verify that it works:
 
 ```shell
 npm install
 ```
 
-### Launch the application
-
+### Run the application
 How to run the application after install :
 
 ```shell
-cd [PROJECT NAME]
 ng serve
 ```
 
-### How to use the application
-The "home" page is divided into 4 parts:
+## How to
+Once the app is running, open your web browser (see [Browser compatibility](#browser-compatibility)) and go to http://localhost:4200
+> If port 4200 is already in use, you can run the app on a another port (look at the `--port` option on https://angular.io/cli/serve)
 
-### Top of page 
-![.github/main.png](.github/main.png)
-In this part, we find the different buttons to access the different pages:
-   
-   ● Reception,
-   ● Parameters,
-   ● Launch mobprogramming,
+Now you should see the "Rooms" page with two options:
+* Create a new session
+* Change language (in English by default)
 
-   Also at the top right, a button to change the language of the website to three different languages:
-   
-● French,
-● English
+![Step 1 - Rooms page](.github/images/1-rooms-page.png)
 
-### Timer part
-![.github/settings.png](.github/settings.png)
-In this part, we find the timer used to organize the mob programming sessions. By default it is set to 1 hour, you can change it at any time.
+### Settings
+![Step 2 - Settings](.github/images/2-settings-page.png)
 
-From this part, you can modify the timer using an input block allowing you to enter the time in minutes. Once you have entered the necessary modifications, click on the “Change” button to validate your modifications.
+After clicking on *Create a new session*, you have to configure:
+* Time session by team member in minutes (left block).
+* Add all the members of your team (right block).
+* Optionally, you can:
+  * Shuffle team members.
+  * Rename or remove team members.
+  * Use random mix of team members (by default each turn is in ordered mode by list).
 
-### Employees part introduction
-  In this part, you will configure the list of developers and collaborators, you can also change the rotation method. This part will interact directly with the timer at the end of each cycle.
+You're ready? So click `Start`.
 
-### Collaborator list part
-  From this part, you can find a list comprising all the collaborators by their names, you can remove collaborators using the delete button (trash can icon) and modify them by clicking directly on their names, editing is done in real time.
+### Mob Programming is started!
+![Step 3 - Running](.github/images/3-running-page.png)
 
-here is an example :
+The top name is the team member who is developing, the bottom name is the next turn when the chrono arrives at 0 and the sound notification sounds.
+> Bottom name is only present on `List` mode.
 
-![.github/collaborator.png](.github/collaborator.png)
-### Employee addition part
+> Tips:
+> - When the team needs a break, you can click the pause button.
+> - If the team member whose turn is ongoing must be absent, you can click the `next` button.
 
-Above the list of collaborators, you have a text block allowing you to add one or more collaborators, they will be added to the list below.
-
-### Operating cycle parameter setting part
-
-From this part, you can change the sponsorship playback method and change the list display when the timer is counting down.
-You can shuffle the list of collaborators using the “Shuffle!” Button. who will modify the list.
-You can also change the course of the cycles and therefore the reading of the sponsors by activating the “Random” mode instead of “List”.
-Nb: Activate the random mode, will hide the list of collaborators when the timer starts.
-
-
-### In the run page, the essential information is condensed there.
-
-We can see :
-- The Timer
-- A play and stop button
-- A button to go to the next employee
-  In List mode:
-- The current employee
--	The following
-   In Random mode:
-- Only the current employee
+Enjoy!
 
 ## Browser compatibility
 | Browser | Tested versions |
 | ------- | ------------------ |
-| `Firefox` | ≥ `v89.0` |
-| `Chrome` | ≥ `v91.0.4472.101` |
-| `Microsoft Edge` | ≥ `91.0.864.41` |
 | `Brave` | ≥ `1.23.73` |
+| `Chrome` | ≥ `91` |
+| `Firefox` | ≥ `89` |
+| `Microsoft Edge` | ≥ `91` |
