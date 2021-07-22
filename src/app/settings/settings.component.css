@@ -1,0 +1,30 @@
+.sec1 {
+  color:black;
+}
+
+.sec1, .sec2, .sec3 {
+  padding-top:20px;
+  text-align:center
+}
+
+.content {
+  min-width: 300px;
+}
+
+mat-card{
+  width: 50%;
+  font-size: xxx-large;
+  background: #3F51B5;
+  color: white;
+  margin-bottom: 2%;
+}
+
+mat-card-title {
+  font-size: x-large;
+  color: white;
+}
+
+mat-card-subtitle {
+  font-size: xxx-large;
+  color: white;
+}

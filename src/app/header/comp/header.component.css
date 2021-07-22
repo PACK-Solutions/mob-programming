@@ -1,0 +1,12 @@
+span {
+  margin-right: 10px;
+  font-size: xx-large;
+}
+
+mat-icon{
+  transform: scale(1.5);
+}
+
+.tab-hover {
+  background-color: #212a5e;
+}

@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayoutAlign="space-between center">
+    <div>
+      <button class="testingbuttonhome" mat-button routerLink="/rooms" *ngIf="router.url != '/rooms'">
+        <mat-icon>home</mat-icon>
+      </button>
+    </div>
+
+    <div>
+      <button class="testingbuttonbuild"  mat-button routerLink="/settings" *ngIf="router.url != '/rooms'" [ngClass]="{'tab-hover': router.url == '/settings'}">
+        <mat-icon>build</mat-icon>
+      </button>
+    </div>
+
+    <div>
+      <button class="testingbuttonplay_circle_outline" mat-button routerLink="/run" *ngIf="router.url != '/rooms'" [ngClass]="{'tab-hover': router.url == '/run'}">
+        <mat-icon>play_circle_outline</mat-icon>
+      </button>
+    </div>
+
+    <div>
+      <button class="testingbuttonlanguage" mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>language</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="switchLang('en')">
+          <span>English</span>
+        </button>
+        <button mat-menu-item (click)="switchLang('fr')">
+          <span>Français</span>
+        </button>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

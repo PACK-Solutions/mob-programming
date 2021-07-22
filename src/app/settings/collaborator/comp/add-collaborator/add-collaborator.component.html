@@ -1,0 +1,13 @@
+<div class="AddCollaborator">
+  <form [formGroup]="collaboratorForm" (ngSubmit)="onSubmit()" id="addForm">
+
+    <mat-form-field class="full-width">
+      <mat-label [innerHTML]="'addCollaborator' | translate"></mat-label>
+      <input matInput type="text" formControlName="name" placeholder="Ex. Franck">
+    </mat-form-field>
+
+    <button class="testaddcollaborator" mat-icon-button type="submit" [disabled]="collaboratorForm.invalid">
+      <mat-icon>add_box</mat-icon>
+    </button>
+  </form>
+</div>

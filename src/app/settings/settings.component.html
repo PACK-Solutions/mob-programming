@@ -1,0 +1,22 @@
+<div class="content" fxLayout="row" fxLayout.xs="column">
+
+  <div fxFlex class="sec1" >
+    <app-edit-timer></app-edit-timer>
+  </div>
+
+  <div fxFlex fxLayout="column" fxLayoutAlign="space-between center" class="sec2">
+
+    <mat-card>
+      <mat-card-title [innerHTML]="'current' | translate"></mat-card-title>
+      <mat-card-subtitle>
+        <span *ngIf="collaboratorService.collaborators.length != 0">{{this.collaboratorService.currentCollaborator.name}}</span>
+        <span *ngIf="collaboratorService.collaborators.length === 0">-</span>
+      </mat-card-subtitle>
+    </mat-card>
+
+    <app-add-collaborator></app-add-collaborator>
+
+    <app-array-collaborator></app-array-collaborator>
+
+  </div>
+</div>
