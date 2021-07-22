@@ -80,3 +80,6 @@ Enjoy!
 | `Chrome` | ≥ `91` |
 | `Firefox` | ≥ `89` |
 | `Microsoft Edge` | ≥ `91` |
+
+## Mentions
+Thanks to [inipagi](https://www.iconfinder.com/inipagi) on Iconfinder who made the logo we use for the Mob Programming app.
