@@ -1,6 +1,11 @@
 # Mob Programming
 ![Mob Programming logo](src/assets/icons/icon-128x128.png)
 
+![Node.js CI](https://github.com/PACK-Solutions/mob-programming/workflows/build.yml/badge.svg)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=PACK-Solutions_mob-programming&metric=alert_status)](https://sonarcloud.io/dashboard?id=PACK-Solutions_mob-programming)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=PACK-Solutions_mob-programming&metric=coverage)](https://sonarcloud.io/dashboard?id=PACK-Solutions_mob-programming)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=PACK-Solutions_mob-programming&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=PACK-Solutions_mob-programming)
+
 ## Overview
 Mob Programming is a software development approach where the whole team works on the same thing, at the same time, in the same space, and at the same computer. For more details, see the Agile Alliance definition : https://www.agilealliance.org/glossary/mob-programming.
 
