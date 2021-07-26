@@ -1,0 +1,15 @@
+{
+  "createSession": "Créer une nouvelle session",
+  "timeInMin": "Temps en minutes",
+  "change": "Changer",
+  "changeTime": "Définir le temps",
+  "addCollaborator": "Ajouter un collaborateur",
+  "shuffle": "Mélanger !",
+  "listMode": "Liste",
+  "randomMode": "Aléatoire",
+  "next": "Suivant",
+  "start": "Démarrer",
+  "current": "Actuel :",
+  "snackTime": ["Chronomètre réglé sur ", " minutes"],
+  "snackNext": ["C'est au tour de ", " !"]
+}
