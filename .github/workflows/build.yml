@@ -44,7 +44,7 @@ jobs:
         with:
           name: mob-programming-app
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
           folder: 'mob-programming-app'
