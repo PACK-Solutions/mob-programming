@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build
-        run: npm run build:prod --if-present
+        run: npm run build:prod:gh-pages --if-present
       - name: Test CI
         run: npm run test:ci
       - name: Upload dist/MobProgramming folder
