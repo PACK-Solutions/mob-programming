@@ -53,7 +53,7 @@ If you followed the [Installation](#installation) step: once the app is running,
 
 Now you should see the "Rooms" page with two options:
 * Create a new session
-* Change language (in English by default)
+* Change language (English and French are supported)
 
 ![Step 1 - Rooms page](.github/images/1-rooms-page.png)
 
