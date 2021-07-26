@@ -18,9 +18,10 @@ For the record, this application was initially created by a group of 2nd year un
 [![PACK Solutions](.github/images/pack-solutions-logo.png)](http://www.pack-solutions.com)
 
 ## Installation
+> This step is only required if you want to run Mob Programming on a self-managed server or a local machine. To directly use the Mob Programming app, you can skip this step and go to the [How to](#how-to) paragraph.
 
-### Platform & tools
-You need to install Node.js and then the development tools. Node.js comes with a package manager called [npm](https://www.npmjs.com) for installing Node.js applications and libraries.
+### Platform
+You need to install Node.js to run the Mob Programming app which is an [Angular](https://angular.io/) application. Node.js comes with a package manager called [npm](https://www.npmjs.com).
 * [Install node.js](https://nodejs.org/download/) (requires Node.js version ≥ `12`)
 
 ### Clone the repo
@@ -30,21 +31,24 @@ cd mob-programming
 ```
 
 ### Install npm packages
-Install the `npm` packages described in the `package.json` and verify that it works:
+Install the `npm` packages described in the `package.json`:
 
 ```shell
 npm install
 ```
 
 ### Run the application
-How to run the application after install :
+Run the app after installation:
 
 ```shell
 ng serve
 ```
 
 ## How to
-Once the app is running, open your web browser (see [Browser compatibility](#browser-compatibility)) and go to http://localhost:4200
+An instance of Mob Programming is available on : https://pack-solutions.github.io/mob-programming/.
+> This instance is automatically updated as soon as a commit is pushed on the `main` branch.
+
+If you followed the [Installation](#installation) step: once the app is running, open your web browser (see [Browser compatibility](#browser-compatibility)) and go to http://localhost:4200
 > If port 4200 is already in use, you can run the app on a another port (look at the `--port` option on https://angular.io/cli/serve)
 
 Now you should see the "Rooms" page with two options:
@@ -87,4 +91,4 @@ Enjoy!
 | `Microsoft Edge` | ≥ `91` |
 
 ## Mentions
-Thanks to [inipagi](https://www.iconfinder.com/inipagi) on Iconfinder who made the logo we use for the Mob Programming app.
+Thanks to [inipagi](https://www.iconfinder.com/inipagi) on Iconfinder who made the logo we use.
