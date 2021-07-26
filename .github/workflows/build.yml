@@ -8,26 +8,44 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: ['12', '14', '16']
     steps:
       - name: Clone Repository
         uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: Use Node.js ${{ matrix.node }}
+      - name: Use Node.js 12.x
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node }}
+          node-version: '12.x'
       - name: Install dependencies
         run: npm ci
       - name: Build
-        run: npm run build --if-present
+        run: npm run build:prod:gh-pages --if-present
       - name: Test CI
         run: npm run test:ci
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: Upload dist/MobProgramming folder
+        uses: actions/upload-artifact@v2
+        with:
+          name: mob-programming-app
+          path: dist/MobProgramming
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v2
+      - name: Download dist/MobProgramming folder
+        uses: actions/download-artifact@v2
+        with:
+          name: mob-programming-app
+          path: mob-programming-app
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: 'mob-programming-app'
