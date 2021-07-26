@@ -1,7 +1,7 @@
 # Mob Programming
 ![Mob Programming logo](src/assets/icons/icon-128x128.png)
 
-![Node.js CI](https://github.com/PACK-Solutions/mob-programming/workflows/build.yml/badge.svg)
+![Node.js CI](https://github.com/PACK-Solutions/mob-programming/workflows/Node.js%20CI/badge.svg)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=PACK-Solutions_mob-programming&metric=alert_status)](https://sonarcloud.io/dashboard?id=PACK-Solutions_mob-programming)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=PACK-Solutions_mob-programming&metric=coverage)](https://sonarcloud.io/dashboard?id=PACK-Solutions_mob-programming)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=PACK-Solutions_mob-programming&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=PACK-Solutions_mob-programming)
