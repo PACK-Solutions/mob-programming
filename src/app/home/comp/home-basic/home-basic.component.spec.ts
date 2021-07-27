@@ -1,10 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { HomeBasicComponent } from './home-basic.component';
 import { DebugElement } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
-import { MatMenuModule } from '@angular/material/menu';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatCardModule } from '@angular/material/card';
 import { By } from '@angular/platform-browser';
+import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateModule } from '@ngx-translate/core';
+import { HomeBasicComponent } from './home-basic.component';
 
 describe('HomeBasicComponent', () => {
   let component: HomeBasicComponent;
@@ -13,8 +13,14 @@ describe('HomeBasicComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeBasicComponent ],
-      imports: [RouterTestingModule, TranslateModule.forRoot(), MatMenuModule ]
+      declarations: [
+        HomeBasicComponent
+      ],
+      imports: [
+        RouterTestingModule,
+        TranslateModule.forRoot(),
+        MatCardModule
+      ]
     })
     .compileComponents();
   });
@@ -27,7 +33,7 @@ describe('HomeBasicComponent', () => {
   });
 
   it('should create', () => {
-     expect(component).toBeTruthy();
+     expect(component).toBeDefined();
    });
 
   it('should have buttons tag createSession', () => {
@@ -37,7 +43,5 @@ describe('HomeBasicComponent', () => {
   it('should have mat-card tag create', () => {
     expect(de.query(By.css('mat-card')).nativeElement.innerText).toBe('Mob Programming');
   });
-
-
 
 });

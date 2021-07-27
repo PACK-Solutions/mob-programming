@@ -1,11 +1,12 @@
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from '../../app.component';
-import { HeaderComponent } from './header.component';
-import { TranslateModule } from '@ngx-translate/core';
+import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { By } from '@angular/platform-browser';
+import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateModule } from '@ngx-translate/core';
+import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -15,7 +16,13 @@ describe('HeaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ HeaderComponent ],
-      imports: [RouterTestingModule, TranslateModule.forRoot(), MatMenuModule]
+      imports: [
+        RouterTestingModule,
+        TranslateModule.forRoot(),
+        MatIconModule,
+        MatMenuModule,
+        MatToolbarModule
+      ]
     })
     .compileComponents();
   });
@@ -28,7 +35,7 @@ describe('HeaderComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeDefined();
   });
 
   it('should have buttons tag home', () => {

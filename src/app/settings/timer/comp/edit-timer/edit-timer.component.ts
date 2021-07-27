@@ -1,22 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { TimerService } from '../../service/timer.service';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
+import { TimerService } from '../../service/timer.service';
 
 @Component({
   selector: 'app-edit-timer',
   templateUrl: './edit-timer.component.html',
   styleUrls: ['./edit-timer.component.css'],
 })
-export class EditTimerComponent implements OnInit {
+export class EditTimerComponent {
 
   public inputTime = new FormControl();
 
-  constructor(public timerService: TimerService, private snackBar: MatSnackBar, public translate: TranslateService) {}
-
-  ngOnInit(): void {
-  }
+  constructor(public readonly timerService: TimerService,
+              private readonly snackBar: MatSnackBar,
+              public readonly translate: TranslateService) { }
 
   onlyNumbersAllowed(event: { which: number; keyCode: any; }): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
@@ -36,6 +35,5 @@ export class EditTimerComponent implements OnInit {
       });
     });
   }
-
 
 }

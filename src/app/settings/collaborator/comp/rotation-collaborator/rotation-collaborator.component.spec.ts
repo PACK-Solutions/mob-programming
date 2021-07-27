@@ -1,13 +1,11 @@
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule } from '@angular/forms';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { By } from '@angular/platform-browser';
+import { TranslateModule } from '@ngx-translate/core';
 import { RotationCollaboratorComponent } from './rotation-collaborator.component';
-import {AppComponent} from '../../../../app.component';
-import {DebugElement, NO_ERRORS_SCHEMA} from '@angular/core';
-import {RouterTestingModule} from '@angular/router/testing';
-import {TranslateModule} from '@ngx-translate/core';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {By} from '@angular/platform-browser';
 
 describe('RotationCollaboratorComponent', () => {
   let component: RotationCollaboratorComponent;
@@ -16,8 +14,15 @@ describe('RotationCollaboratorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RotationCollaboratorComponent ],
-      imports : [RouterTestingModule, TranslateModule.forRoot(), MatMenuModule, MatSnackBarModule ]
+      declarations: [
+        RotationCollaboratorComponent
+      ],
+      imports: [
+        FormsModule,
+        MatSlideToggleModule,
+        MatSnackBarModule,
+        TranslateModule.forRoot()
+      ]
     })
     .compileComponents();
   });
@@ -30,19 +35,15 @@ describe('RotationCollaboratorComponent', () => {
   });
 
   it('should create', () => {
-     expect(component).toBeTruthy();
-   });
-
+    expect(component).toBeDefined();
+  });
 
   it('should have test list mode', () => {
-    expect(de.query(By.css('testlistmode')));
+    expect(de.query(By.css('.testlistmode')).nativeElement.innerText).toBe('listMode');
   });
 
   it('should have test random mode', () => {
-    expect(de.query(By.css('testrandommode')));
+    expect(de.query(By.css('.testrandommode')).nativeElement.innerText).toBe('randomMode');
   });
 
-  it('should have created mat-slide-toggle', () => {
-    expect(de.query(By.css('mat-slide-toggle')).nativeElement.innerText);
-  });
 });

@@ -7,17 +7,17 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-array-collaborator',
   templateUrl: './array-collaborator.component.html',
-  styleUrls: ['./array-collaborator.component.css']
+  styleUrls: [ './array-collaborator.component.css' ]
 })
 export class ArrayCollaboratorComponent {
 
   selectedCollaborator?: Collaborator;
 
-  constructor(public collaboratorService: CollaboratorsService,
-              public timerService: TimerService,
-              private router: Router) {}
+  constructor(public readonly collaboratorService: CollaboratorsService,
+              public readonly timerService: TimerService,
+              private readonly router: Router) { }
 
-  onSelect(collaborator: Collaborator): void{
+  onSelect(collaborator: Collaborator): void {
     this.selectedCollaborator = collaborator;
   }
 

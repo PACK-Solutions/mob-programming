@@ -1,56 +1,45 @@
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { AddTimerComponent } from './add-timer.component';
-import { AppComponent } from '../../../../app.component';
-import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
-import { MatMenuModule } from '@angular/material/menu';
-import { TimerPipe } from '../../pipe/timer.pipe';
 import { By } from '@angular/platform-browser';
-
+import { TranslateModule } from '@ngx-translate/core';
+import { TimerPipe } from '../../pipe/timer.pipe';
+import { PauseStartTimerComponent } from '../pause-start-timer/pause-start-timer.component';
+import { ResetTimerComponent } from '../reset-timer/reset-timer.component';
+import { AddTimerComponent } from './add-timer.component';
 
 describe('AddTimerComponent', () => {
   let component: AddTimerComponent;
   let fixture: ComponentFixture<AddTimerComponent>;
-  let de: DebugElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddTimerComponent, TimerPipe ],
-      imports: [MatSnackBarModule, TranslateModule.forRoot(), MatMenuModule, MatSnackBarModule ]
+      declarations: [
+        AddTimerComponent,
+        PauseStartTimerComponent,
+        ResetTimerComponent,
+        TimerPipe
+      ],
+      imports: [
+        MatCardModule,
+        MatSnackBarModule,
+        TranslateModule.forRoot()
+      ]
     })
     .compileComponents();
+    TestBed.overrideTemplateUsingTestingModule(PauseStartTimerComponent, '');
+    TestBed.overrideTemplateUsingTestingModule(ResetTimerComponent, '');
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AddTimerComponent);
     component = fixture.componentInstance;
-    de = fixture.debugElement;
     fixture.detectChanges();
   });
 
   it('should create', () => {
-     expect(component).toBeTruthy();
-  });
-
-
-  it('should have app-pause-start-timer created', () => {
-    expect(de.query(By.css('app-pause-start-timer')).nativeElement.innerText);
-  });
-  it('should have app-reset-timer created', () => {
-    expect(de.query(By.css('app-reset-timer')).nativeElement.innerText);
-  });
-
-  it('should have timerButton created', () => {
-    expect(de.query(By.css('.timerButton')).nativeElement.innerText);
-  });
-
-  it('should have mat-card created', () => {
-    expect(de.query(By.css('mat-card')).nativeElement.innerText);
-  });
-
-  it('should have divs created', () => {
-    expect(de.query(By.css('div')).nativeElement.innerText);
+    expect(component).toBeDefined();
   });
 
 });

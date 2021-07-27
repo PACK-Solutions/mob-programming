@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {Collaborator} from '../model/collaborator.model';
-import {TranslateService} from '@ngx-translate/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
+import { Collaborator } from '../model/collaborator.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,17 +14,17 @@ export class CollaboratorsService {
 
   public collaborators: Collaborator[] = [];
 
-  constructor(private snackBar: MatSnackBar, public translate: TranslateService) {
+  constructor(private readonly snackBar: MatSnackBar, private readonly translate: TranslateService) {
     this.currentCollaborator = this.collaborators[0];
     this.rotationMode = 'List';
     this.updateRandomList();
   }
 
-  getAllCollaborators(): Collaborator[]{
+  getAllCollaborators(): Collaborator[] {
     return this.collaborators;
   }
 
-  public addCollaborator(collaboratorToAdd: Collaborator): void{
+  public addCollaborator(collaboratorToAdd: Collaborator): void {
     this.collaborators.push(collaboratorToAdd);
     this.collaboratorRandom.push(collaboratorToAdd);
     if (this.collaborators.length === 1){
@@ -43,7 +43,7 @@ export class CollaboratorsService {
     });
   }
 
-  private updateRandomList(): Collaborator[]{
+  private updateRandomList(): Collaborator[] {
     this.collaboratorRandom = [];
     for (const collaborator of this.collaborators){
       this.collaboratorRandom.push(collaborator);
@@ -55,7 +55,6 @@ export class CollaboratorsService {
    * Method static for shuffle a array
    */
   public shuffle(): Collaborator[] {
-
     for (let i = this.collaborators.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [this.collaborators[i], this.collaborators[j]] = [this.collaborators[j], this.collaborators[i]];
@@ -68,7 +67,6 @@ export class CollaboratorsService {
   }
 
   changeMode(mode: string): void {
-
     this.rotationMode = mode;
 
     if (mode === 'Random'){

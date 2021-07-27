@@ -1,25 +1,30 @@
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { PauseStartTimerComponent } from './pause-start-timer.component';
-import { AppComponent } from '../../../../app.component';
-import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
-import { EditTimerComponent } from '../edit-timer/edit-timer.component';
+import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { TranslateModule } from '@ngx-translate/core';
-import { MatMenuModule } from '@angular/material/menu';
 import { By } from '@angular/platform-browser';
+import { TranslateModule } from '@ngx-translate/core';
+import { TimerService } from '../../service/timer.service';
+import { PauseStartTimerComponent } from './pause-start-timer.component';
 
 describe('PauseStartTimerComponent', () => {
   let component: PauseStartTimerComponent;
   let fixture: ComponentFixture<PauseStartTimerComponent>;
   let de: DebugElement;
+  let timerService: TimerService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PauseStartTimerComponent ],
-      imports: [MatSnackBarModule, TranslateModule.forRoot(), MatMenuModule, MatSnackBarModule ]
-    })
-      .compileComponents();
+      declarations: [
+        PauseStartTimerComponent
+      ],
+      imports: [
+        MatIconModule,
+        MatSnackBarModule,
+        TranslateModule.forRoot()
+      ]
+    }).compileComponents();
+    timerService = TestBed.inject(TimerService);
   });
 
   beforeEach(() => {
@@ -30,19 +35,19 @@ describe('PauseStartTimerComponent', () => {
   });
 
   it('should create', () => {
-     expect(component).toBeTruthy();
+     expect(component).toBeDefined();
   });
 
-  it('should have button created', () => {
-    expect(de.query(By.css('button')).nativeElement.innerText);
+  it('should have pause button', () => {
+    timerService.timerState = 'start';
+    fixture.detectChanges();
+    expect(de.query(By.css('button mat-icon')).nativeElement.innerText).toBe('pause_circle_outline');
   });
 
-  it('should have mat-icon created', () => {
-    expect(de.query(By.css('mat-icon')).nativeElement.innerText);
-  });
-
-  it('should have div created', () => {
-    expect(de.query(By.css('div')).nativeElement.innerText);
+  it('should have play button', () => {
+    timerService.timerState = 'pause';
+    fixture.detectChanges();
+    expect(de.query(By.css('button mat-icon')).nativeElement.innerText).toBe('play_circle_outline');
   });
 
 });

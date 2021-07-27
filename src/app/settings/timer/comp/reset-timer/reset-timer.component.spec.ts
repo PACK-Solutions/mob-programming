@@ -1,13 +1,9 @@
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ResetTimerComponent } from './reset-timer.component';
-import { AppComponent } from '../../../../app.component';
-import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
-import { PauseStartTimerComponent } from '../pause-start-timer/pause-start-timer.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { TranslateModule } from '@ngx-translate/core';
-import { MatMenuModule } from '@angular/material/menu';
 import { By } from '@angular/platform-browser';
+import { TranslateModule } from '@ngx-translate/core';
+import { ResetTimerComponent } from './reset-timer.component';
 
 describe('ResetTimerComponent', () => {
   let component: ResetTimerComponent;
@@ -16,10 +12,14 @@ describe('ResetTimerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ResetTimerComponent ],
-      imports: [MatSnackBarModule, TranslateModule.forRoot(), MatMenuModule, MatSnackBarModule ]
-    })
-      .compileComponents();
+      declarations: [
+        ResetTimerComponent
+      ],
+      imports: [
+        MatSnackBarModule,
+        TranslateModule.forRoot()
+      ]
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -30,15 +30,11 @@ describe('ResetTimerComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
-  it('should have div created', () => {
-    expect(de.query(By.css('div')).nativeElement.innerText);
+    expect(component).toBeDefined();
   });
 
   it('should have button created', () => {
-    expect(de.query(By.css('button')).nativeElement.innerText);
+    expect(de.query(By.css('button')).nativeElement.innerText).toBe('next');
   });
 
 });

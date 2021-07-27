@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CollaboratorsService } from '../../settings/collaborator/service/collaborators.service';
 
 @Component({
@@ -6,11 +6,8 @@ import { CollaboratorsService } from '../../settings/collaborator/service/collab
   templateUrl: './main-list.component.html',
   styleUrls: ['./main-list.component.css']
 })
-export class MainListComponent implements OnInit {
+export class MainListComponent {
 
-  constructor(public collaboratorService: CollaboratorsService) { }
-
-  ngOnInit(): void {
-  }
+  constructor(public readonly collaboratorService: CollaboratorsService) { }
 
 }

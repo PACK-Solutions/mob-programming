@@ -14,8 +14,7 @@ export class TimerService {
   public tick = 1000;
   public timerState = 'pause';
 
-
-  constructor(private collaboratorService: CollaboratorsService) {
+  constructor(private readonly collaboratorService: CollaboratorsService) {
   }
 
   public createTimer(): Observable<number>{
@@ -24,7 +23,7 @@ export class TimerService {
     );
   }
 
-  public createTimerFromValue(actualValue: number): Observable<number>{
+  public createTimerFromValue(actualValue: number): Observable<number> {
     return timer(0, this.tick).pipe(
       take(actualValue)
     );
@@ -38,7 +37,6 @@ export class TimerService {
       this.createTimerFromValue(this.counter);
     this.countDown = actualTimer.subscribe(() => {
       this.counter -= 1;
-      } , () => {
       }, () => {
         this.endTimer();
         this.startTimer();
