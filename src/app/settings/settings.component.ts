@@ -1,17 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CollaboratorsService } from './collaborator/service/collaborators.service';
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.css']
+  styleUrls: [ './settings.component.css' ]
 })
-export class SettingsComponent implements OnInit {
+export class SettingsComponent {
 
-  constructor(public collaboratorService: CollaboratorsService) { }
-
-  ngOnInit(): void {
-  }
-
+  constructor(public readonly collaboratorService: CollaboratorsService) { }
 
 }

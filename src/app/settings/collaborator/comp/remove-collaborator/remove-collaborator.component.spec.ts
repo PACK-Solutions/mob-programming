@@ -1,13 +1,10 @@
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { By } from '@angular/platform-browser';
+import { TranslateModule } from '@ngx-translate/core';
 import { RemoveCollaboratorComponent } from './remove-collaborator.component';
-import {AppComponent} from '../../../../app.component';
-import {DebugElement, NO_ERRORS_SCHEMA} from '@angular/core';
-import {RouterTestingModule} from '@angular/router/testing';
-import {TranslateModule} from '@ngx-translate/core';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {By} from '@angular/platform-browser';
 
 describe('RemoveCollaboratorComponent', () => {
   let component: RemoveCollaboratorComponent;
@@ -16,8 +13,14 @@ describe('RemoveCollaboratorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RemoveCollaboratorComponent ],
-      imports : [RouterTestingModule, TranslateModule.forRoot(), MatMenuModule, MatSnackBarModule ]
+      declarations: [
+        RemoveCollaboratorComponent
+      ],
+      imports: [
+        MatIconModule,
+        MatSnackBarModule,
+        TranslateModule.forRoot()
+      ]
     })
     .compileComponents();
   });
@@ -30,15 +33,11 @@ describe('RemoveCollaboratorComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeDefined();
    });
 
   it('should have created button', () => {
-    expect(de.query(By.css('button')).nativeElement.innerText);
-  });
-
-  it('should have created mat-icon', () => {
-    expect(de.query(By.css('mat-icon')).nativeElement.innerText);
+    expect(de.query(By.css('button mat-icon')).nativeElement.innerText).toBe('delete');
   });
 
 });

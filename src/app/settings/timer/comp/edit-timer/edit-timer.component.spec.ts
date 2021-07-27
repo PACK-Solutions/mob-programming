@@ -1,23 +1,33 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { EditTimerComponent } from './edit-timer.component';
-import { AppComponent } from '../../../../app.component';
-import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule } from '@ngx-translate/core';
-import { MatMenuModule } from '@angular/material/menu';
 import { TimerPipe } from '../../pipe/timer.pipe';
-import { By } from '@angular/platform-browser';
+import { EditTimerComponent } from './edit-timer.component';
 
 describe('EditTimerComponent', () => {
   let component: EditTimerComponent;
   let fixture: ComponentFixture<EditTimerComponent>;
-  let de: DebugElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditTimerComponent, TimerPipe ],
-      imports: [MatSnackBarModule, TranslateModule.forRoot(), MatMenuModule, MatSnackBarModule ]
+      declarations: [
+        EditTimerComponent,
+        TimerPipe
+      ],
+      imports: [
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSnackBarModule,
+        NoopAnimationsModule,
+        ReactiveFormsModule,
+        TranslateModule.forRoot()
+      ]
     })
     .compileComponents();
   });
@@ -25,42 +35,11 @@ describe('EditTimerComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EditTimerComponent);
     component = fixture.componentInstance;
-    de = fixture.debugElement;
     fixture.detectChanges();
   });
 
   it('should create', () => {
-  expect(component).toBeTruthy();
+    expect(component).toBeDefined();
   });
-
-
-  it('should have div created', () => {
-    expect(de.query(By.css('div')).nativeElement.innerText);
-  });
-
-  it('should have mat-card created', () => {
-    expect(de.query(By.css('mat-card')).nativeElement.innerText);
-  });
-
-  it('should have form created', () => {
-    expect(de.query(By.css('form')).nativeElement.innerText);
-  });
-
-  it('should have mat-form-field created', () => {
-    expect(de.query(By.css('mat-form-field')).nativeElement.innerText);
-  });
-
-  it('should have mat-label created', () => {
-    expect(de.query(By.css('mat-label')).nativeElement.innerText);
-  });
-
-  it('should have input created', () => {
-    expect(de.query(By.css('input')).nativeElement.innerText);
-  });
-
-  it('should have button created', () => {
-    expect(de.query(By.css('button')).nativeElement.innerText);
-  });
-
 
 });

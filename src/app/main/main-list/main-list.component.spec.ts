@@ -1,25 +1,34 @@
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { MainListComponent } from './main-list.component';
-import { AppComponent } from '../../app.component';
-import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
-import { RouterTestingModule } from '@angular/router/testing';
-import { TranslateModule } from '@ngx-translate/core';
-import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { By } from '@angular/platform-browser';
+import { TranslateModule } from '@ngx-translate/core';
+import { Collaborator } from '../../settings/collaborator/model/collaborator.model';
+import { CollaboratorsService } from '../../settings/collaborator/service/collaborators.service';
+import { AddTimerComponent } from '../../settings/timer/comp/add-timer/add-timer.component';
+import { MainListComponent } from './main-list.component';
 
 describe('MainListComponent', () => {
   let component: MainListComponent;
   let fixture: ComponentFixture<MainListComponent>;
   let de: DebugElement;
+  let collaboratorService: CollaboratorsService;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ MainListComponent ],
-      imports : [RouterTestingModule, TranslateModule.forRoot(), MatMenuModule, MatSnackBarModule ]
-    })
-    .compileComponents();
+    TestBed.configureTestingModule({
+      declarations: [
+        AddTimerComponent,
+        MainListComponent
+      ],
+      imports: [
+        TranslateModule.forRoot(),
+        MatCardModule,
+        MatSnackBarModule
+      ]
+    });
+    TestBed.overrideTemplateUsingTestingModule(AddTimerComponent, '').compileComponents();
+    collaboratorService = TestBed.inject(CollaboratorsService);
   });
 
   beforeEach(() => {
@@ -30,23 +39,31 @@ describe('MainListComponent', () => {
   });
 
   it('should create', () => {
-     expect(component).toBeTruthy();
+     expect(component).toBeDefined();
    });
 
   it('should have app add timer', () => {
-    expect(de.query(By.css('.testingappaddtimer')).nativeElement.innerText);
+    expect(de.query(By.css('.testingappaddtimer'))).toBeDefined();
   });
 
-  it('should have matcard collaborator name', () => {
-    expect(de.query(By.css('.testingmatcard-collaboratorname')).nativeElement.innerText);
+  it('should have no current and next collaborators', () => {
+    expect(de.query(By.css('.testingmatcard-collaboratorname span')).nativeElement.innerText).toBe('-');
+    expect(de.query(By.css('.testingmatcardnextcard div')).nativeElement.innerText).toBe('-');
   });
 
-  it('should have matcard next card', () => {
-    expect(de.query(By.css('.testingmatcardnextcard')).nativeElement.innerText);
+  it('should have one current / next collaborator', () => {
+    collaboratorService.addCollaborator(new Collaborator(1, 'John'));
+    fixture.detectChanges();
+    expect(de.query(By.css('.testingmatcard-collaboratorname span')).nativeElement.innerText).toBe('John');
+    expect(de.query(By.css('.testingmatcardnextcard div')).nativeElement.innerText).toBe('John');
   });
 
-  it('should have collaborator list', () => {
-    expect(de.query(By.css('.collaboratorsList')));
+  it('should have different current / next collaborators', () => {
+    collaboratorService.addCollaborator(new Collaborator(1, 'John'));
+    collaboratorService.addCollaborator(new Collaborator(2, 'Marc'));
+    fixture.detectChanges();
+    expect(de.query(By.css('.testingmatcard-collaboratorname span')).nativeElement.innerText).toBe('John');
+    expect(de.query(By.css('.testingmatcardnextcard div')).nativeElement.innerText).toBe('Marc');
   });
 
 });

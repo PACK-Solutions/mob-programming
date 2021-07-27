@@ -1,4 +1,4 @@
-mat-card{
+mat-card {
   font-size: 500%;
   background: #3F51B5;
   color: white;
@@ -7,7 +7,5 @@ mat-card{
 }
 
 .timerButton {
-  /*justify-content: space-around;*/
-  /*display: flex;*/
   padding: 2%;
 }

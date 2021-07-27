@@ -1,13 +1,14 @@
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { By } from '@angular/platform-browser';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule } from '@ngx-translate/core';
 import { AddCollaboratorComponent } from './add-collaborator.component';
-import {AppComponent} from '../../../../app.component';
-import {DebugElement, NO_ERRORS_SCHEMA} from '@angular/core';
-import {RouterTestingModule} from '@angular/router/testing';
-import {TranslateModule} from '@ngx-translate/core';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {By} from '@angular/platform-browser';
 
 describe('AddCollaboratorComponent', () => {
   let component: AddCollaboratorComponent;
@@ -16,8 +17,18 @@ describe('AddCollaboratorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddCollaboratorComponent ],
-      imports : [RouterTestingModule, TranslateModule.forRoot(), MatMenuModule, MatSnackBarModule ]
+      declarations: [
+        AddCollaboratorComponent
+      ],
+      imports: [
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        MatSnackBarModule,
+        NoopAnimationsModule,
+        ReactiveFormsModule,
+        TranslateModule.forRoot()
+      ]
     })
     .compileComponents();
   });
@@ -30,23 +41,7 @@ describe('AddCollaboratorComponent', () => {
   });
 
   it('should create', () => {
-     expect(component).toBeTruthy();
-   });
-
-  it('should have created form', () => {
-    expect(de.query(By.css('form')).nativeElement.innerText);
-  });
-
-  it('should have created mat-form-field', () => {
-    expect(de.query(By.css('mat-form-field')).nativeElement.innerText);
-  });
-
-  it('should have created mat-label', () => {
-    expect(de.query(By.css('mat-label')).nativeElement.innerText);
-  });
-
-  it('should have created input', () => {
-    expect(de.query(By.css('input')).nativeElement.innerText);
+    expect(component).toBeDefined();
   });
 
   it('should have button crated testaddcollaborator', () => {

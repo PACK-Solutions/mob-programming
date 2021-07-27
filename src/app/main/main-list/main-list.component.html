@@ -5,7 +5,7 @@
     <span *ngIf="collaboratorService.collaborators.length === 0">-</span>
   </mat-card>
   <mat-card class="testingmatcardnextcard" id="next-card" *ngIf="collaboratorService.rotationMode == 'List'">
-    <div class="collaboratorsList" *ngIf="collaboratorService.collaborators.length != 0">
+    <div class="collaboratorsList" *ngIf="collaboratorService.collaborators.length !== 0">
     {{collaboratorService.collaborators[
     collaboratorService.collaborators.indexOf(collaboratorService.currentCollaborator) != collaboratorService.collaborators.length - 1 ?
       collaboratorService.collaborators.indexOf(collaboratorService.currentCollaborator) + 1 : 0

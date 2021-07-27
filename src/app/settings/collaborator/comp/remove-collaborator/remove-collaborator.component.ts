@@ -1,26 +1,22 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {CollaboratorsService} from '../../service/collaborators.service';
-import {Collaborator} from '../../model/collaborator.model';
+import { Component, Input } from '@angular/core';
+import { Collaborator } from '../../model/collaborator.model';
+import { CollaboratorsService } from '../../service/collaborators.service';
 
 @Component({
   selector: 'app-remove-collaborator',
   templateUrl: './remove-collaborator.component.html',
-  styleUrls: ['./remove-collaborator.component.css']
+  styleUrls: [ './remove-collaborator.component.css' ]
 })
-export class RemoveCollaboratorComponent implements OnInit {
+export class RemoveCollaboratorComponent {
   @Input() collaborator!: Collaborator;
 
-  constructor(private collaboratorService: CollaboratorsService) {
-  }
+  constructor(private readonly collaboratorService: CollaboratorsService) { }
 
-  ngOnInit(): void {
-  }
-
-
-  public removeCollaborators(): void{
+  public removeCollaborators(): void {
     if (this.collaborator === this.collaboratorService.currentCollaborator) {
       this.collaboratorService.nextCollaborator();
     }
     this.collaboratorService.removeCollaborator(this.collaborator.id);
   }
+
 }

@@ -3,6 +3,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
   let translateService: TranslateService;
 
@@ -14,19 +15,20 @@ describe('AppComponent', () => {
     }).compileComponents();
     translateService = TestBed.inject(TranslateService);
     fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
   });
 
   it('should use "fr" lang', () => {
     spyOn(translateService, 'getBrowserLang').and.returnValue('fr');
     spyOn(translateService, 'use').and.stub();
-    fixture.componentInstance.ngOnInit();
+    component.ngOnInit();
     expect(translateService.use).toHaveBeenCalledWith('fr');
   });
 
   it('should use default lang', () => {
     spyOn(translateService, 'getBrowserLang').and.returnValue('unknown');
     spyOn(translateService, 'use').and.stub();
-    fixture.componentInstance.ngOnInit();
+    component.ngOnInit();
     expect(translateService.use).not.toHaveBeenCalled();
   });
 
