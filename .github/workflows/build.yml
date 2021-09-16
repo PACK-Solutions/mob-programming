@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ["12.x", "14.x", "16.x"]
+        node: [12.x, 14.x, 16.x]
     steps:
       - name: Clone Repository
         uses: actions/checkout@v2
@@ -27,30 +27,28 @@ jobs:
       - name: Test CI
         run: npm run test:ci
       - name: Upload dist/MobProgramming folder
+        if: matrix.node == '12.x'
         uses: actions/upload-artifact@v2
         with:
           name: mob-programming-app
           path: dist/MobProgramming
-      - name: Cache coverage folder
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-coverage
+      - name: Upload code coverage report
+        if: matrix.node == '12.x'
+        uses: actions/upload-artifact@v2
         with:
-          path: coverage
-          key: ${{ runner.os }}-build-${{ env.cache-name }}
+          name: code-coverage-report
+          path: coverage/MobProgramming/lcov.info
   sonar:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Clone Repository
         uses: actions/checkout@v2
-      - name: Cache coverage folder
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-coverage
+      - name: Download code coverage report
+        uses: actions/download-artifact@v2
         with:
-          path: coverage
-          key: ${{ runner.os }}-build-${{ env.cache-name }}
+          name: code-coverage-report
+          path: coverage/MobProgramming
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
@@ -72,4 +70,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
-          folder: "mob-programming-app"
+          folder: 'mob-programming-app'
