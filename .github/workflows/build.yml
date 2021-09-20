@@ -8,31 +8,52 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [12, 14, 16]
     steps:
       - name: Clone Repository
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: Use Node.js 12.x
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v2
         with:
-          node-version: '12.x'
+          node-version: ${{ matrix.node }}
       - name: Install dependencies
         run: npm ci
       - name: Build
         run: npm run build:prod:gh-pages --if-present
       - name: Test CI
         run: npm run test:ci
+      - name: Upload dist/MobProgramming folder
+        if: matrix.node == '16'
+        uses: actions/upload-artifact@v2
+        with:
+          name: mob-programming-app
+          path: dist/MobProgramming
+      - name: Upload code coverage report
+        if: matrix.node == '16'
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-coverage-report
+          path: coverage/MobProgramming/lcov.info
+  sonar:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v2
+      - name: Download code coverage report
+        uses: actions/download-artifact@v2
+        with:
+          name: code-coverage-report
+          path: coverage/MobProgramming
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      - name: Upload dist/MobProgramming folder
-        uses: actions/upload-artifact@v2
-        with:
-          name: mob-programming-app
-          path: dist/MobProgramming
   deploy:
     needs: build
     if: github.ref == 'refs/heads/main'
